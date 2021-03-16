@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		这是一个200*100pixel矩形<br />
+		<canvas id="mycanvas" width="" height=""></canvas>
+		
+		<script type="text/javascript">
+			let mycanvas=document.getElementById("mycanvas");
+			let mycontext=mycanvas.getContext();
+			mycontext.fillRect(0,0,200,100);
+		</script> 
+		
+	</body>
+</html>
