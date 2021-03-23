@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<img src="img/3.gif" >
+				<h1>※猜数字小游戏</h1>
+				请输入0-5之间的数字
+			<input v-model="unumber"/>
+			<li v-if="unumber==keynumber">congratulations</li>
+			<div id="">
+				
+			</div>
+			
+			
+		</div>
+		<script>
+			let v=new Vue({
+				el: "#app",
+				data:{
+						keynumber: Math.floor(Math.random()*5),
+						unumber: '',
+						
+				},
+			})
+		</script>
+
+
+	</body>
+</html>
