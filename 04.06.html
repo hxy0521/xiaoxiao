@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+		<input v-model="id" type="text"/>
+			<div v-for="dd in dx">
+				<li v-if="dx.ID==id">
+					你输入的代码是{{dd.id}},国家是{{dd.nation}},首都是{{dd.location}}</li>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			let v=new Vue({
+				el:'#app',
+				data:{
+					id="1",
+					dx:[
+					{
+						ID:"86",
+						nation:"中国",
+						location:"北京",
+					},
+					
+					{
+						ID:"1",
+						nation:"美国",
+						location:"华盛顿",
+					},
+					{
+						ID:"44",
+						nation:"英国",
+						location:"伦敦",
+					}]
+				}
+			})
+		</script>
+	</body>
+</html>
