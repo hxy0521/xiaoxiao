@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<img src="./img/biubiu.gif" @click="show()">
+			请点击鱼桶<br>
+		</div>
+		<script type="text/javascript">
+			let v=new Vue({
+				el:'#app',
+				data:{
+					
+				},
+				methods:{
+					show(){
+						if(event.clientX>126 && event.clientX<134 && event.clientY>135 && event.clientY<157){
+							
+						alert("恭喜你！找到鱼桶！！！")
+						}
+					}
+				}
+			})
+		</script>
+		
+		
+	</body>
+</html>
