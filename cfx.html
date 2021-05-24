@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="400" height="400"></canvas>
+		<div id="app">
+			<input type="button"  @click="show()" value="画圆" /><!--点击事件-->
+			
+		</div>
+		<script type="text/javascript">
+			let v=new Vue({
+				el:"#app",
+				data:{
+		
+				},
+				methods:{
+					show(){
+						var canvas=document.getElementById("myCanvas");
+						
+						// fillRect(x, y, width, height)
+						// 绘制一个填充的矩形
+						// strokeRect(x, y, width, height)
+						// 绘制一个矩形的边框
+						// clearRect(x, y, width, height)
+						// 清除指定矩形区域，让清除部分完全透明
+						
+						if (canvas.getContext) {
+							var ctx = canvas.getContext('2d');
+						}
+						ctx.fillRect(100,100, 100, 100);
+						//ctx.clearRect(45, 45, 60, 60);
+						ctx.strokeRect(95, 95, 110, 110);
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
