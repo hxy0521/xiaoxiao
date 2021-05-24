@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="400" height="400"></canvas>
+		<div id="app">
+			<input type="button"  @click="show()" value="画圆" /><!--点击事件-->
+			<input v-model="r" type="" name="" id="" value="" />
+		</div>
+		<script type="text/javascript">
+			let v=new Vue({
+				el:"#app",
+				data:{
+					r:0
+				},
+				methods:{
+					show(){
+						let canvas=document.getElementById("myCanvas");
+						let c=canvas.getContext("2d");//二维画圆
+						c.beginPath();//开始画圆
+						c.arc(200,110,v.$data.r,0,2*Math.PI)//括号内第一个和第二个参数,代表圆心坐标.第三个参数是圆的半径.
+						//第四个参数代表圆周起始位置.0 PI就是起始位置.沿顺时针路线,分别是0.5 PI（正下方）,1 PI和1.5 PI（正上方）,
+						//为画饼图提供了扇形范围的依据.第五个参数是弧长Math.PI*2就是整个圆,Math.PI是半圆
+						c.stroke();//结束画圆
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
