@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="400" height="400"></canvas>
+		<div id="app">
+			<input type="text" v-model="num" @keyup.enter="show()" id="myText" value="" /><!--点击事件-->
+		</div>
+		<script type="text/javascript">
+			let v=new Vue({
+				el:"#app",
+				data:{
+					num:1
+				},
+				methods:{
+					show(){
+						var canvas=document.getElementById("myCanvas");
+						var ctx = canvas.getContext('2d');
+						
+						let img=new Image();
+						img.src="./img/"+v.$data.num+".jpg";
+						let myText=document.getElementById("myText").value;
+						//alert(img);
+						img.onload=function(){
+							ctx.drawImage(img,0,0);
+						}
+					}
+						
+				}
+				
+			})
+		</script>
+	</body>
+</html>
+
