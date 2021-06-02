@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="800"  height="600"></canvas>
+		<div id="app">
+			<input  type="text"  @click="show()" v-model="userString" @keyup.enter="show()" id="input" value="" /><!--点击事件-->
+			<br>跳跃次数：{{pace}}
+			<br>得分：{{score}}
+		</div>
+		<script type="text/javascript">
+					let v=new Vue({
+						el:"#app",
+						data:{
+							userString:"",
+							count:0,
+							pace:0, //跳跃次数
+							score:0,  //得分
+							mission:1
+						},
+						methods:{
+							show(){
+								console.log(this.userString);
+								switch(this.mission) {
+								     case 1:  //第一关
+								        break;
+								     case 2:   //第二关
+								        this.show2()
+								        return;
+								} 
+								//条件判断
+								if(this.count==0 && this.userString=="hello"){
+									let canvas=document.getElementById("myCanvas");
+									let ctx = canvas.getContext('2d');
+									let img_background=new Image();
+									img_background.src="img/background.gif";
+									img_background.onload=function(){
+										ctx.drawImage(img_background,0,0);
+									}
+									let img_frog=new Image();
+									img_frog.src="img/frog.gif";
+									this.count++;
+									this.pace++;
+									this.score+=10;  //每成功跳到一片荷叶上，分数就+10分
+									this.userString="";
+									img_frog.onload=function(){
+										ctx.drawImage(img_frog,240,290);
+									}
+									return;
+								}
+								if(this.count==1 && this.userString=="world"){
+									let canvas=document.getElementById("myCanvas");
+									let ctx = canvas.getContext('2d');
+									let img_background=new Image();
+									img_background.src="img/background.gif";
+									img_background.onload=function(){
+										ctx.drawImage(img_background,0,0);
+									}
+									let img_frog=new Image();
+									img_frog.src="img/frog.gif";
+									this.count++;
+									this.pace++;
+									this.score+=10;
+									this.userString="";
+									img_frog.onload=function(){
+										ctx.drawImage(img_frog,430,190);
+									}
+									return;
+								}
+								if(this.count==2 && this.userString=="hi"){
+									let canvas=document.getElementById("myCanvas");
+									let ctx = canvas.getContext('2d');
+									let img_background=new Image();
+									img_background.src="img/background.gif";
+									img_background.onload=function(){
+										ctx.drawImage(img_background,0,0);
+									}
+									let img_frog=new Image();
+									img_frog.src="img/frog.gif";
+									this.count++;
+									this.pace++;
+									this.score+=10;
+									this.userString="";
+									img_frog.onload=function(){
+										ctx.drawImage(img_frog,350,50);
+									}
+									return;
+								}
+								
+								this.userString="";
+								return;
+							},
+							//第二关
+							show2(){
+								console.log(this.userString);
+
+								//条件判断
+								if(this.count==0 && this.userString=="this"){
+									let canvas=document.getElementById("myCanvas");
+									let ctx = canvas.getContext('2d');
+									let img_background=new Image();
+									img_background.src="img/background2.gif";
+									img_background.onload=function(){
+										ctx.drawImage(img_background,0,0);
+									}
+									let img_frog=new Image();
+									img_frog.src="img/frog.gif";
+									this.count++;
+									this.pace++;
+									this.score+=10;
+									this.userString="";
+									img_frog.onload=function(){
+										ctx.drawImage(img_frog,240,290);
+									}
+									return;
+								}
+								
+								if(this.count==0 ){
+									let canvas=document.getElementById("myCanvas");
+									let ctx = canvas.getContext('2d');
+									let img_background=new Image();
+									img_background.src="img/background2.gif";
+									img_background.onload=function(){
+										ctx.drawImage(img_background,0,0);
+									}
+									let img_frog=new Image();
+									img_frog.src="img/frog.gif";
+									img_frog.onload=function(){
+										ctx.drawImage(img_frog,400,400);
+									}
+									return;
+								}
+								
+								if(this.count==1 && this.userString=="is"){
+									let canvas=document.getElementById("myCanvas");
+									let ctx = canvas.getContext('2d');
+									let img_background=new Image();
+									img_background.src="img/background2.gif";
+									img_background.onload=function(){
+										ctx.drawImage(img_background,0,0);
+									}
+									let img_frog=new Image();
+									img_frog.src="img/frog.gif";
+									this.count++;
+									this.pace++;
+									this.score+=10;
+									this.userString="";
+									img_frog.onload=function(){
+										ctx.drawImage(img_frog,430,190);
+									}
+									return;
+								}
+								if(this.count==2 && this.userString=="frog"){
+									let canvas=document.getElementById("myCanvas");
+									let ctx = canvas.getContext('2d');
+									let img_background=new Image();
+									img_background.src="img/background2.gif";
+									img_background.onload=function(){
+										ctx.drawImage(img_background,0,0);
+									}
+									let img_frog=new Image();
+									img_frog.src="img/frog.gif";
+									this.count++;
+									this.pace++;
+									this.score+=10;
+									this.userString="";
+									img_frog.onload=function(){
+										ctx.drawImage(img_frog,350,50);
+									}
+									return;
+								}
+								this.userString="";
+								return;
+							}
+						},
+						created() {
+							let canvas=document.getElementById("myCanvas");
+							let ctx = canvas.getContext('2d');
+							let img_background=new Image();
+							img_background.src="img/background.gif";
+							img_background.onload=function(){
+								ctx.drawImage(img_background,0,0);
+							}
+							let img_frog=new Image();
+							img_frog.src="img/frog.gif";
+							img_frog.onload=function(){
+								ctx.drawImage(img_frog,400,400);
+							}
+						},
+						updated() {
+							if(this.count==3){
+								alert("第"+this.mission+"关闯关成功！");
+								this.count=0;
+								this.mission++;
+							}
+						}
+					})
+				</script>
+	</body>
+</html>
